@@ -9,6 +9,7 @@ getConnection();
 
 app.director('/director', require('./routes/director'))
 
+app.use('/genero', require('./routes/genero'));
 
 
 app.listen(port, () => {
