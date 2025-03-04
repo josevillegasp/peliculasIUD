@@ -78,7 +78,7 @@ try {
    //  const directorExist = await Director.findOne({ nombre: req.body.nombre });
     // if (directorExist) {
       // return res.status(400).send('nombre repetido');
-    }
+    
 
        
     director.nombre = req.body.nombre;
