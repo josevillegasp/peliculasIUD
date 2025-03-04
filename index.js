@@ -7,7 +7,7 @@ const port = 4000
 
 getConnection();
 
-app.director('/director', require('./routes/director'))
+app.use('/director', require('./routes/director'))
 
 app.use('/genero', require('./routes/genero'));
 
