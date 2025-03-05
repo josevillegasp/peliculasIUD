@@ -19,6 +19,12 @@ router.post('/', [
             return res.status(400).json({ message: errors.array() });
         }
 
+        // Verificar si ya existe un género con el mismo nombre
+        const generoExist = await Genero.findOne({ nombre: req.body.nombre });
+        if (generoExist) {
+            return res.status(400).send('El nombre del género ya existe');
+        }
+
         let genero = new Genero();
         genero.nombre = req.body.nombre;
         genero.descripcion = req.body.descripcion;
