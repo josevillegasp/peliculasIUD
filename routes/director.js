@@ -98,4 +98,24 @@ try {
 
 });
 
+/**
+  Eliminar un director 
+ */
+router.delete('/:id', async function (req, res) {
+
+    try {
+        const director = await Director.findByIdAndDelete(req.params.id);
+        if (!director) {
+            return res.status(404).json({ message: 'Director no encontrado' });
+        }
+
+        res.json({ message: 'Director eliminado correctamente' });
+
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Mensaje de error');
+    }
+
+});
+
 module.exports = router;

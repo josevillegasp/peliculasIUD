@@ -19,6 +19,12 @@ router.post('/', [
             return res.status(400).json({ errors: errors.array() });
         }
 
+           // Verificar si ya existe un género con el mismo nombre
+            const productoraExist = await Productora.findOne({ nombre: req.body.nombre });
+            if (productoraExist) {
+                return res.status(400).send('El nombre de la productora ya existe');
+            }    
+
         let productora = new Productora({
             nombre: req.body.nombre,
             slogan: req.body.slogan,

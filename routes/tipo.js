@@ -17,6 +17,8 @@ router.post('/', [
             return res.status(400).json({ errors: errors.array() });
         }
 
+        
+
         let tipo = new Tipo({
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
