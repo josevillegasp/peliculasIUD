@@ -1,11 +1,14 @@
 // Cargar variables de entorno desde el archivo .env
 require('dotenv').config();
 
+const cors=require('cors');
 const express = require('express');
 const { getConnection } = require('./db/connect-mongo');
 
 const app = express();
 const port = process.env.PORT; // Usar solo el puerto de .env
+
+app.use(cors());
 
 // Middleware para parsear el cuerpo de las solicitudes en formato JSON
 app.use(express.json());
